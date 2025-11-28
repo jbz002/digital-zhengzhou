@@ -1,0 +1,168 @@
+/* 文化页面组件样式 */
+
+.culturePage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-xxl);
+  padding: var(--spacing-lg) var(--spacing-lg) 0;
+}
+
+.pageTitle {
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+.pageSubtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: none;
+  margin: 0;
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+}
+
+.featureCard {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-large);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-light);
+  transition: var(--transition-normal);
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.featureCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  transform: translateX(-100%);
+  transition: var(--transition-normal);
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-heavy);
+  border-color: var(--primary-color);
+}
+
+.featureCard:hover::before {
+  transform: translateX(0);
+}
+
+.featureIcon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--primary-bg), var(--primary-color));
+  border-radius: var(--radius-large);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-medium);
+  transition: var(--transition-normal);
+}
+
+.featureCard:hover .featureIcon {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-heavy);
+}
+
+.iconEmoji {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.featureContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.featureTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.featureDescription {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+  margin: 0;
+  flex: 1;
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+  .featureGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .culturePage {
+    padding: var(--spacing-md);
+  }
+
+  .pageHeader {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .featureCard {
+    padding: var(--spacing-lg);
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .featureIcon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0;
+    margin-right: var(--spacing-md);
+    flex-shrink: 0;
+  }
+
+  .iconEmoji {
+    font-size: 24px;
+  }
+
+  .featureContent {
+    flex: 1;
+  }
+}

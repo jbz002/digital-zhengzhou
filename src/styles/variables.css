@@ -1,0 +1,92 @@
+/* 数字郑州 - CSS变量定义 */
+
+:root {
+  /* 主题色彩 - 中国红色系 */
+  --primary-color: #E53935;
+  --primary-dark: #C62828;
+  --primary-light: #EF5350;
+  --primary-bg: #FFEBEE;
+
+  /* 中性色彩 */
+  --background-color: #FAFAFA;
+  --surface-color: #FFFFFF;
+  --card-background: #FFFFFF;
+
+  /* 文字色彩 */
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --text-hint: #BDBDBD;
+  --text-on-primary: #FFFFFF;
+
+  /* 边框和分割线 */
+  --border-color: #E0E0E0;
+  --divider-color: #EEEEEE;
+
+  /* 状态色彩 */
+  --success-color: #4CAF50;
+  --warning-color: #FF9800;
+  --error-color: #F44336;
+  --info-color: #2196F3;
+
+  /* 阴影 */
+  --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-heavy: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  /* 圆角 */
+  --radius-small: 4px;
+  --radius-medium: 8px;
+  --radius-large: 12px;
+  --radius-round: 50%;
+
+  /* 间距系统 - 基于8px */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  /* 字体大小 */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 24px;
+  --font-size-title: 28px;
+
+  /* 字体粗细 */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+
+  /* 行高 */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-loose: 1.8;
+
+  /* 动画时长 */
+  --transition-fast: 0.15s;
+  --transition-normal: 0.3s;
+  --transition-slow: 0.5s;
+
+  /* 动画缓动函数 */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  /* 布局尺寸 */
+  --header-height: 60px;
+  --footer-height: 60px;
+  --sidebar-width: 240px;
+  --container-min-width: 1200px;
+  --container-max-width: 1440px;
+
+  /* Z-index层级 */
+  --z-dropdown: 1000;
+  --z-modal: 1050;
+  --z-tooltip: 1100;
+  --z-header: 100;
+  --z-footer: 100;
+}

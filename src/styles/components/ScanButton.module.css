@@ -1,0 +1,129 @@
+/* 扫码按钮组件样式 */
+
+.scanButton {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  border: none;
+  border-radius: var(--radius-medium);
+  color: var(--text-on-primary);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  min-width: 60px;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+.scanButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+}
+
+.scanButton:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-light);
+}
+
+.scanIcon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.scanEmoji {
+  font-size: 18px;
+  filter: brightness(1.1);
+  animation: scanPulse 2s ease-in-out infinite;
+}
+
+@keyframes scanPulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.scanText {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* 扫码框装饰角 */
+.scanCornerTopLeft,
+.scanCornerTopRight,
+.scanCornerBottomLeft,
+.scanCornerBottomRight {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.scanCornerTopLeft {
+  top: 2px;
+  left: 2px;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: var(--radius-small);
+}
+
+.scanCornerTopRight {
+  top: 2px;
+  right: 2px;
+  border-left: none;
+  border-bottom: none;
+  border-top-right-radius: var(--radius-small);
+}
+
+.scanCornerBottomLeft {
+  bottom: 2px;
+  left: 2px;
+  border-right: none;
+  border-top: none;
+  border-bottom-left-radius: var(--radius-small);
+}
+
+.scanCornerBottomRight {
+  bottom: 2px;
+  right: 2px;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: var(--radius-small);
+}
+
+/* 悬停时扫描线动画 */
+.scanButton:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  animation: scanLine 1.5s linear infinite;
+}
+
+@keyframes scanLine {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50px);
+  }
+}

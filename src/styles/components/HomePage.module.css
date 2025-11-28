@@ -1,0 +1,245 @@
+/* 首页组件样式 */
+
+.homePage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+}
+
+.contentLayout {
+  display: flex;
+  flex: 1;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  max-width: none;
+  margin: 0;
+}
+
+.leftSidebar {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.verticalTabBar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface-color);
+  border-radius: var(--radius-large);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-light);
+  overflow: hidden;
+  height: fit-content;
+  position: sticky;
+  top: var(--spacing-lg);
+}
+
+.verticalTabItem {
+  position: relative;
+  padding: var(--spacing-md);
+  background-color: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  text-align: left;
+  width: 100%;
+  outline: none;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.verticalTabItem:last-child {
+  border-bottom: none;
+}
+
+.verticalTabItem:hover {
+  color: var(--primary-color);
+  background-color: rgba(229, 57, 53, 0.05);
+}
+
+.verticalTabItem.active {
+  color: var(--primary-color);
+  background-color: var(--primary-bg);
+  font-weight: var(--font-weight-bold);
+  border-right: 3px solid var(--primary-color);
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* 保留原有的tabItem样式以兼容旧代码，但不再使用 */
+.tabBar {
+  display: none;
+}
+
+.tabItem {
+  display: none;
+}
+
+.contentArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.contentHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+  padding: 0 var(--spacing-md);
+}
+
+.contentTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.contentStats {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.newsCount {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  background-color: var(--primary-bg);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-medium);
+  border: 1px solid var(--primary-color);
+  font-weight: var(--font-weight-medium);
+}
+
+.newsListContainer {
+  max-width: none;
+  margin: 0;
+}
+
+.loadMore {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-xl) 0;
+}
+
+.loadMoreButton {
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  border: none;
+  border-radius: var(--radius-medium);
+  color: var(--text-on-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-light);
+}
+
+.loadMoreButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.loadMoreButton:active {
+  transform: translateY(0);
+}
+
+/* 响应式调整 */
+@media (max-width: 1024px) {
+  .leftSidebar {
+    width: 100px;
+  }
+
+  .verticalTabItem {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 768px) {
+  .contentLayout {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+
+  .leftSidebar {
+    width: 100%;
+  }
+
+  .verticalTabBar {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: auto;
+    position: static;
+    border-bottom: 1px solid var(--border-color);
+    border-radius: var(--radius-medium);
+    padding: 0;
+    gap: 0;
+  }
+
+  .verticalTabItem {
+    flex-shrink: 0;
+    border-bottom: none;
+    border-right: 1px solid var(--divider-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    white-space: nowrap;
+  }
+
+  .verticalTabItem:last-child {
+    border-right: none;
+  }
+
+  .verticalTabItem.active {
+    border-right: none;
+    border-bottom: 3px solid var(--primary-color);
+  }
+
+  .contentArea {
+    padding: var(--spacing-md);
+  }
+
+  .loadMore {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .loadMoreButton {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .contentLayout {
+    padding: var(--spacing-sm);
+  }
+
+  .verticalTabItem {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+
+  .contentArea {
+    padding: var(--spacing-sm);
+  }
+
+  .loadMoreButton {
+    width: 100%;
+    max-width: 300px;
+  }
+}

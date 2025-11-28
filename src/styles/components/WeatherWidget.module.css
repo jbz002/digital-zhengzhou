@@ -1,0 +1,66 @@
+/* 天气组件样式 */
+
+.weatherWidget {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-medium);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  min-width: 180px;
+}
+
+.weatherWidget:hover {
+  background-color: var(--surface-color);
+  box-shadow: var(--shadow-light);
+  transform: translateY(-1px);
+}
+
+.weatherIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weatherEmoji {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.weatherInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.temperature {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.condition {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
+
+.weatherDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: var(--font-size-xs);
+  color: var(--text-hint);
+  border-left: 1px solid var(--divider-color);
+  padding-left: var(--spacing-sm);
+}
+
+.humidity,
+.windSpeed {
+  white-space: nowrap;
+  line-height: 1.2;
+}

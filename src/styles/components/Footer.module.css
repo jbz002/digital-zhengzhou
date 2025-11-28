@@ -1,0 +1,89 @@
+/* Footer组件样式 */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--footer-height);
+  background-color: var(--surface-color);
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  z-index: var(--z-footer);
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.footerContainer {
+  max-width: var(--container-max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+
+.navItem {
+  flex: 1;
+  max-width: 120px;
+}
+
+/* 响应式调整 */
+@media (max-width: 1440px) {
+  .footerContainer {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .navigation {
+    gap: var(--spacing-xs);
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .navigation {
+    gap: 0;
+  }
+
+  .navItem {
+    min-width: 80px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .navItem .navLabel {
+    font-size: 10px;
+  }
+
+  .navItem .iconEmoji {
+    font-size: 18px;
+  }
+}
+
+/* 添加安全区域支持 */
+@supports (padding: max(0px)) {
+  .footer {
+    padding-bottom: max(var(--spacing-xs), env(safe-area-inset-bottom));
+  }
+}
+
+/* 暗色主题支持 */
+@media (prefers-color-scheme: dark) {
+  .footer {
+    background-color: rgba(33, 33, 33, 0.95);
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+}

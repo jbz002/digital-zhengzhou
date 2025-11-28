@@ -1,0 +1,134 @@
+/* 导航项组件样式 */
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-medium);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  position: relative;
+  min-width: 80px;
+  text-decoration: none;
+  outline: none;
+}
+
+.navItem:hover {
+  background-color: rgba(229, 57, 53, 0.1);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.navItem.active {
+  color: var(--primary-color);
+  background-color: rgba(229, 57, 53, 0.15);
+}
+
+.navIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-medium);
+  transition: var(--transition-normal);
+}
+
+.navItem:hover .navIcon {
+  background-color: rgba(229, 57, 53, 0.2);
+}
+
+.navItem.active .navIcon {
+  background-color: rgba(229, 57, 53, 0.3);
+}
+
+.iconEmoji {
+  font-size: 20px;
+  line-height: 1;
+  transition: var(--transition-normal);
+}
+
+.navItem:hover .iconEmoji {
+  transform: scale(1.1);
+}
+
+.navItem.active .iconEmoji {
+  animation: bounceIn 0.5s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.activeDot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary-color);
+  border-radius: var(--radius-round);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.navLabel {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  transition: var(--transition-normal);
+}
+
+.navItem:hover .navLabel {
+  font-weight: var(--font-weight-bold);
+}
+
+.navItem.active .navLabel {
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+}
+
+/* 按钮聚焦状态 */
+.navItem:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* 禁用状态 */
+.navItem:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

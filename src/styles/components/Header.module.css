@@ -1,0 +1,147 @@
+/* Header组件样式 */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-medium);
+  z-index: var(--z-header);
+  height: var(--header-height);
+}
+
+.headerContainer {
+  max-width: var(--container-max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: var(--spacing-lg);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  flex-shrink: 0;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-shrink: 0;
+}
+
+.headerNav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-medium);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  text-decoration: none;
+  outline: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.navItem:hover {
+  background-color: rgba(229, 57, 53, 0.1);
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.navItem.active {
+  color: var(--primary-color);
+  background-color: rgba(229, 57, 53, 0.15);
+  font-weight: var(--font-weight-bold);
+}
+
+.navIcon {
+  font-size: var(--font-size-base);
+  line-height: 1;
+}
+
+.navLabel {
+  font-size: var(--font-size-sm);
+  line-height: 1.2;
+}
+
+/* 响应式调整 */
+@media (max-width: 1440px) {
+  .headerContainer {
+    padding: 0 var(--spacing-sm);
+    gap: var(--spacing-md);
+  }
+
+  .headerLeft {
+    gap: var(--spacing-md);
+  }
+
+  .headerNav {
+    gap: var(--spacing-xs);
+  }
+
+  .navItem {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+}
+
+@media (max-width: 1200px) {
+  .weatherWidget {
+    min-width: 160px;
+  }
+
+  .logo .subtitle {
+    display: none;
+  }
+
+  .userCenter .userInfo {
+    display: none;
+  }
+
+  .navLabel {
+    display: none;
+  }
+
+  .navItem {
+    padding: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  .headerContainer {
+    padding: 0 var(--spacing-sm);
+    gap: var(--spacing-sm);
+  }
+
+  .headerNav {
+    gap: 0;
+  }
+
+  .navItem {
+    flex: 1;
+    justify-content: center;
+    padding: var(--spacing-xs);
+  }
+
+  .navIcon {
+    font-size: 18px;
+  }
+}
