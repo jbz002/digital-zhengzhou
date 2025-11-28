@@ -160,6 +160,7 @@
   border: 1px solid var(--border-color);
   transition: var(--transition-normal);
   cursor: pointer;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
@@ -171,30 +172,35 @@
   transform: translateY(-2px);
 }
 
-.serviceHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.serviceCard:hover .followButton {
+  transform: scale(1.05);
 }
 
-.serviceIcon {
-  font-size: var(--font-size-xl);
+.serviceHeader {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 2;
 }
 
 .followButton {
   padding: var(--spacing-xs) var(--spacing-sm);
-  background-color: transparent;
-  border: 1px solid var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-small);
-  color: var(--primary-color);
+  color: var(--text-secondary);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   cursor: pointer;
   transition: var(--transition-normal);
+  box-shadow: var(--shadow-light);
+  backdrop-filter: blur(4px);
 }
 
 .followButton:hover {
-  background-color: var(--primary-bg);
+  background-color: var(--surface-color);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .followButton.followed {
@@ -208,6 +214,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
+  padding-top: var(--spacing-md);
+  min-height: 80px;
 }
 
 .serviceName {
@@ -225,26 +233,6 @@
   margin: 0;
 }
 
-.serviceButton {
-  padding: var(--spacing-sm) var(--spacing-md);
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-  border: none;
-  border-radius: var(--radius-medium);
-  color: var(--text-on-primary);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  cursor: pointer;
-  transition: var(--transition-normal);
-}
-
-.serviceButton:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-light);
-}
-
-.serviceButton:active {
-  transform: translateY(0);
-}
 
 .emptyState {
   display: flex;

@@ -8,7 +8,19 @@ export enum ServiceCategory {
   EDUCATION = 'education',
   TRANSPORTATION = 'transportation',
   SHOPPING = 'shopping',
-  ENTERTAINMENT = 'entertainment'
+  ENTERTAINMENT = 'entertainment',
+  FINANCE = 'finance',
+  LEGAL = 'legal',
+  TOURISM = 'tourism',
+  PET_SERVICE = 'pet_service',
+  BEAUTY = 'beauty',
+  FITNESS = 'fitness',
+  REPAIR = 'repair',
+  MOVING = 'moving',
+  WASTE_DISPOSAL = 'waste_disposal',
+  PROPERTY_MANAGEMENT = 'property_management',
+  ELDER_CARE = 'elder_care',
+  CHILDCARE = 'childcare'
 }
 
 export interface ServiceCategoryItem {

@@ -8,7 +8,19 @@ export enum OrganizationCategory {
   HOSPITAL = 'hospital',
   BANK = 'bank',
   POST_OFFICE = 'post_office',
-  COMMUNITY_CENTER = 'community_center'
+  COMMUNITY_CENTER = 'community_center',
+  POLICE = 'police',
+  FIRE_STATION = 'fire_station',
+  PARK = 'park',
+  MUSEUM = 'museum',
+  THEATER = 'theater',
+  SPORTS_CENTER = 'sports_center',
+  MARKET = 'market',
+  HOTEL = 'hotel',
+  GAS_STATION = 'gas_station',
+  PHARMACY = 'pharmacy',
+  TELECOMMUNICATION = 'telecommunication',
+  INSURANCE = 'insurance'
 }
 
 export interface OrganizationCategoryItem {
