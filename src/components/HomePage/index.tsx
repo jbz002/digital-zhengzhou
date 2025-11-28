@@ -88,17 +88,6 @@ const HomePage: React.FC = () => {
 
         <div className={styles.mainContent}>
           <div className={styles.contentArea}>
-            {/* 内容标题和统计 */}
-            <div className={styles.contentHeader}>
-              <h2 className={styles.contentTitle}>
-                {tabs.find(tab => tab.id === activeTab)?.label}
-                <span className={styles.contentCount}>({currentNews.length})</span>
-              </h2>
-              <div className={styles.contentMeta}>
-                <span className={styles.modeDescription}>智能混合布局，根据资讯内容自动选择最佳展示方式</span>
-              </div>
-            </div>
-
             <NewsList
               newsItems={currentNews}
               onItemClick={handleNewsClick}
