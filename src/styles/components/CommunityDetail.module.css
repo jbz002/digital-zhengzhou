@@ -1,0 +1,624 @@
+/* 社区详情页面样式 - 与机构详情页面保持一致风格 */
+
+.communityDetail {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 页面头部 */
+.pageHeader {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.pageHeader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  opacity: 0.3;
+}
+
+.backButton {
+  position: absolute;
+  top: var(--spacing-lg);
+  left: var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-medium);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  z-index: 1;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.communityInfo {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.communityName {
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--spacing-md) 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.communityAddress {
+  font-size: var(--font-size-base);
+  margin: 0 0 var(--spacing-xs) 0;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+.communityPhone {
+  font-size: var(--font-size-base);
+  margin: 0 0 var(--spacing-sm) 0;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+.communityDescription {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* 功能按钮区域 */
+.functionArea {
+  padding: var(--spacing-xl);
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.functionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.functionButton {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-large);
+  padding: var(--spacing-xl);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-md);
+}
+
+.functionButton:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+  background: var(--primary-bg);
+}
+
+.functionIcon {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.functionName {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.functionDescription {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* AI百事通对话窗口 */
+.aiChatSection {
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--divider-color);
+  padding: var(--spacing-xl);
+}
+
+.aiChatHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.aiChatTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-xs) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.aiIcon {
+  font-size: var(--font-size-xl);
+}
+
+.aiChatSubtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+.aiChatMessages {
+  background: var(--background-color);
+  border-radius: var(--border-radius-medium);
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-lg);
+  height: 400px;
+  overflow-y: auto;
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.message {
+  max-width: 80%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-medium);
+  position: relative;
+}
+
+.message.user {
+  background: var(--primary-color);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: var(--border-radius-small);
+}
+
+.message.ai {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  align-self: flex-start;
+  border-bottom-left-radius: var(--border-radius-small);
+}
+
+.messageContent {
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-xs);
+}
+
+.messageTime {
+  font-size: var(--font-size-xs);
+  opacity: 0.7;
+  text-align: right;
+}
+
+.aiChatInput {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.aiInput {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-medium);
+  font-size: var(--font-size-sm);
+  background: var(--background-color);
+  color: var(--text-primary);
+  outline: none;
+  transition: var(--transition-normal);
+}
+
+.aiInput:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.1);
+}
+
+.sendButton {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-medium);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.sendButton:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* 社区公告 */
+.announcementSection {
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--divider-color);
+  padding: var(--spacing-xl);
+}
+
+.announcementHeader {
+  margin-bottom: var(--spacing-lg);
+}
+
+.announcementTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.announcementIcon {
+  font-size: var(--font-size-xl);
+}
+
+.announcementList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.announcementItem {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-lg);
+  transition: var(--transition-normal);
+}
+
+.announcementItem:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-light);
+  transform: translateY(-1px);
+}
+
+.announcementContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.announcementMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-xs);
+}
+
+.announcementCategory {
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.announcementDate {
+  color: var(--text-hint);
+}
+
+.announcementItemTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.announcementText {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 底部标签页 */
+.tabsSection {
+  background-color: var(--surface-color);
+  padding: var(--spacing-xl);
+  flex: 1;
+}
+
+.tabsHeader {
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  border-bottom: 3px solid var(--divider-color);
+  padding-bottom: var(--spacing-lg);
+  padding-left: var(--spacing-lg);
+}
+
+.tabButton {
+  background: transparent;
+  border: none;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--border-radius-large);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  position: relative;
+  min-width: 80px;
+}
+
+.tabButton:hover {
+  color: var(--primary-color);
+  background: var(--primary-bg);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-light);
+}
+
+.tabButton.active {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+  background: var(--primary-bg);
+  box-shadow: var(--shadow-light);
+}
+
+.tabButton.active::after {
+  content: '';
+  position: absolute;
+  bottom: calc(-1 * var(--spacing-lg) - 3px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0 2px 4px rgba(229, 57, 53, 0.3);
+}
+
+.tabIcon {
+  font-size: var(--font-size-xxl);
+}
+
+.tabName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+}
+
+.tabContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.serviceList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.serviceCard {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-lg);
+  transition: var(--transition-normal);
+}
+
+.serviceCard:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-light);
+  transform: translateY(-1px);
+}
+
+.serviceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-sm);
+}
+
+.serviceName {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.servicePhone {
+  font-size: var(--font-size-xs);
+  color: var(--primary-color);
+  background: var(--primary-bg);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-small);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.serviceDescription {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .functionGrid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .functionButton {
+    padding: var(--spacing-lg);
+  }
+
+  .serviceList {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .aiChatMessages {
+    height: 350px;
+  }
+
+  .tabsHeader {
+    gap: var(--spacing-lg);
+    padding-left: var(--spacing-md);
+  }
+
+  .tabButton {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    min-width: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageHeader {
+    padding: var(--spacing-lg);
+  }
+
+  .backButton {
+    position: static;
+    margin-bottom: var(--spacing-md);
+    align-self: flex-start;
+  }
+
+  .communityName {
+    font-size: var(--font-size-xl);
+  }
+
+  .communityInfo {
+    text-align: left;
+  }
+
+  .functionArea,
+  .aiChatSection,
+  .announcementSection,
+  .tabsSection {
+    padding: var(--spacing-lg);
+  }
+
+  .functionGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .functionIcon {
+    font-size: 36px;
+  }
+
+  .serviceName {
+    font-size: var(--font-size-base);
+  }
+
+  .functionDescription {
+    font-size: var(--font-size-xs);
+  }
+
+  .aiChatMessages {
+    height: 300px;
+  }
+
+  .tabsHeader {
+    gap: var(--spacing-md);
+    padding-left: var(--spacing-md);
+    justify-content: flex-start;
+  }
+
+  .tabButton {
+    padding: var(--spacing-sm) var(--spacing-md);
+    min-width: 65px;
+  }
+
+  .tabIcon {
+    font-size: var(--font-size-xl);
+  }
+
+  .tabName {
+    font-size: var(--font-size-sm);
+  }
+
+  .serviceList {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .functionGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  .functionButton {
+    padding: var(--spacing-md);
+  }
+
+  .functionIcon {
+    font-size: 32px;
+  }
+
+  .aiChatMessages {
+    height: 250px;
+  }
+
+  .aiChatInput {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .sendButton {
+    align-self: stretch;
+  }
+
+  .tabsHeader {
+    flex-wrap: wrap;
+  }
+
+  .announcementMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+}

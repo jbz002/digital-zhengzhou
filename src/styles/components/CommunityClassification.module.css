@@ -1,0 +1,526 @@
+/* 社区分类组件样式 - 固定区域布局 */
+
+.communityClassification {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  background: var(--surface-color);
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-light);
+}
+
+/* 顶部标题和状态区域 */
+.classificationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--divider-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.classificationTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.selectionStatus {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.statusText {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.resetButton {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-small);
+  font-size: var(--font-size-xs);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resetButton:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* 固定分类选择区域 */
+.fixedClassificationArea {
+  background: var(--background-color);
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--border-color);
+}
+
+.levelSelector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.levelItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.levelLabel {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.levelSelect {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-medium);
+  background: white;
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.levelSelect:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.1);
+}
+
+.levelSelect:disabled {
+  background: var(--background-color);
+  color: var(--text-hint);
+  cursor: not-allowed;
+}
+
+.levelSelect option {
+  background: white;
+  color: var(--text-primary);
+  padding: var(--spacing-xs);
+}
+
+/* 展示区域 */
+.displayArea {
+  margin-top: var(--spacing-lg);
+}
+
+/* 区级展示 */
+.districtDisplay {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.districtHeader {
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.districtTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.districtSubtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* 社区分组列表展示 */
+.communityListGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.streetGroup {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-medium);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.streetGroup:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-light);
+}
+
+.streetGroupHeader {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #c62828 100%);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.streetGroupName {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  margin: 0;
+}
+
+.streetGroupCount {
+  font-size: var(--font-size-xs);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: var(--border-radius-small);
+}
+
+/* 社区列表展示 */
+.communityList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+}
+
+/* 街道分组展示 - 当选中街道时使用 */
+.groupedByStreet {
+  margin-top: var(--spacing-md);
+}
+
+.streetGroupHeader {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #c62828 100%);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.currentStreetName {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  margin: 0;
+}
+
+.streetCommunityCount {
+  font-size: var(--font-size-xs);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: var(--border-radius-small);
+}
+
+.streetCommunities {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.communityListItem {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.communityListItem:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-light);
+  transform: translateY(-1px);
+}
+
+.communityListItem.selected {
+  border-color: var(--primary-color);
+  background: var(--primary-bg);
+  box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.1);
+}
+
+.listItemMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.communityName {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.communityAddressText {
+  font-size: var(--font-size-xs);
+  color: var(--text-hint);
+  margin: 0;
+}
+
+.listItemServices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+}
+
+.listServiceTag {
+  font-size: 10px;
+  padding: 2px 6px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius-small);
+}
+
+/* 保留原有样式用于街道卡片 */
+.streetCard {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-medium);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.streetCard:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-light);
+}
+
+.streetHeader {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #c62828 100%);
+  color: white;
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.streetName {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin: 0;
+}
+
+.communityCount {
+  font-size: var(--font-size-xs);
+  background: rgba(255, 255, 255, 0.2);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-small);
+}
+
+/* 社区列表 - 保留用于兼容性 */
+.communitiesList {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.communityCard {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.communityCard:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-light);
+  transform: translateY(-1px);
+}
+
+.communityCard.selected {
+  border-color: var(--primary-color);
+  background: var(--primary-bg);
+  box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.1);
+}
+
+.communityHeader {
+  margin-bottom: var(--spacing-xs);
+}
+
+.communityName {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.communityDesc {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-xs) 0;
+  line-height: 1.4;
+}
+
+.communityAddress {
+  font-size: var(--font-size-xs);
+  color: var(--text-hint);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+/* 服务标签 */
+.communityServices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+}
+
+.serviceTag {
+  font-size: var(--font-size-xs);
+  padding: 2px 6px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius-small);
+}
+
+.moreServices {
+  font-size: var(--font-size-xs);
+  padding: 2px 6px;
+  background: var(--text-hint);
+  color: white;
+  border-radius: var(--border-radius-small);
+}
+
+/* 占位区域 */
+.placeholderArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: var(--background-color);
+  border: 2px dashed var(--border-color);
+  border-radius: var(--border-radius-medium);
+}
+
+.placeholderContent {
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.placeholderTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.placeholderDesc {
+  font-size: var(--font-size-sm);
+  color: var(--text-hint);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .levelSelector {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .classificationHeader {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: flex-start;
+  }
+
+  .selectionStatus {
+    align-self: stretch;
+    justify-content: space-between;
+  }
+
+  .levelSelector {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .fixedClassificationArea {
+    padding: var(--spacing-md);
+  }
+
+  .streetCommunities {
+    gap: var(--spacing-xs);
+  }
+
+  .communityListItem {
+    padding: var(--spacing-xs);
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-xs);
+  }
+
+  .listItemMain {
+    gap: 2px;
+  }
+
+  .listItemServices {
+    gap: 2px;
+  }
+
+  .listServiceTag {
+    font-size: 9px;
+    padding: 1px 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .communityClassification {
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+
+  .classificationHeader {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .fixedClassificationArea {
+    padding: var(--spacing-sm);
+    gap: var(--spacing-sm);
+  }
+
+  .streetGroupHeader {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .currentStreetName {
+    font-size: var(--font-size-xs);
+  }
+
+  .streetCommunities {
+    gap: var(--spacing-xs);
+  }
+
+  .communityListItem {
+    padding: var(--spacing-xs);
+  }
+
+  .listServiceTag {
+    font-size: 8px;
+    padding: 1px 2px;
+  }
+
+  .communityAddressText {
+    font-size: 9px;
+  }
+}
