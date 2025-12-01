@@ -8,7 +8,8 @@ export enum HomeTabType {
   GOVERNMENT = 'government',
   SCIENCE = 'science',
   HEALTH = 'health',
-  FAMILY = 'family'
+  FAMILY = 'family',
+  ORGANIZATION = 'organization'
 }
 
 export interface TabItem {

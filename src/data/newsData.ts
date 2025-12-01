@@ -1,5 +1,5 @@
-import { NewsItem } from '@types/news'
-import { HomeTabType } from '@types/home'
+import { NewsItem } from '../types/news'
+import { HomeTabType } from '../types/home'
 
 // 首页各个标签的资讯数据
 export const newsData: Record<HomeTabType, NewsItem[]> = {
@@ -753,86 +753,6 @@ export const newsData: Record<HomeTabType, NewsItem[]> = {
       price: '免费服务',
       cardLayout: 'list',
       isExclusive: true
-    }
-  ],
-
-  [HomeTabType.MEDIA]: [
-    {
-      id: 'm1',
-      title: '郑州电视台今日郑州栏目全新改版',
-      summary: '郑州电视台王牌栏目今日郑州全新改版，引入新技术设备，节目质量和观看体验全面提升。',
-      category: HomeTabType.MEDIA,
-      tags: ['电视台', '节目改版', '融媒体'],
-      author: '郑州电视台',
-      publishTime: '2024-01-15 18:00',
-      readCount: 2340,
-      likeCount: 187,
-      imageUrl: '/images/tv-show.jpg',
-      priority: 'medium'
-    }
-  ],
-
-  [HomeTabType.GOVERNMENT]: [
-    {
-      id: 'g1',
-      title: '郑州市政府工作报告：2024年民生实事清单发布',
-      summary: '郑州市2024年民生实事清单正式发布，涵盖教育、医疗、交通、环境等10大领域40项具体任务。',
-      category: HomeTabType.GOVERNMENT,
-      tags: ['政府工作', '民生实事', '政策发布'],
-      author: '郑州市政府办公厅',
-      publishTime: '2024-01-15 14:00',
-      readCount: 5230,
-      likeCount: 412,
-      imageUrl: '/images/government-report.jpg',
-      priority: 'high'
-    }
-  ],
-
-  [HomeTabType.SCIENCE]: [
-    {
-      id: 's1',
-      title: '郑州科技馆新展区开放：探索人工智能的奥秘',
-      summary: '郑州科技馆全新人工智能展区正式向公众开放，通过互动展品让市民了解AI技术的基本原理和应用。',
-      category: HomeTabType.SCIENCE,
-      tags: ['科技馆', '人工智能', '科普教育'],
-      author: '郑州科技馆',
-      publishTime: '2024-01-15 13:00',
-      readCount: 1560,
-      likeCount: 123,
-      imageUrl: '/images/science-museum.jpg',
-      priority: 'medium'
-    }
-  ],
-
-  [HomeTabType.HEALTH]: [
-    {
-      id: 'h1',
-      title: '郑州各大医院春节门诊安排公布',
-      summary: '为保障市民春节期间就医需求，郑州各大医院公布春节期间门诊安排，急诊24小时开放。',
-      category: HomeTabType.HEALTH,
-      tags: ['医疗服务', '春节', '门诊安排'],
-      author: '郑州市卫健委',
-      publishTime: '2024-01-15 11:00',
-      readCount: 4230,
-      likeCount: 345,
-      imageUrl: '/images/hospital.jpg',
-      priority: 'high'
-    }
-  ],
-
-  [HomeTabType.FAMILY]: [
-    {
-      id: 'fam1',
-      title: '郑州家庭教育指导中心成立，提供专业服务',
-      summary: '郑州市家庭教育指导中心正式成立，将为家长提供专业的家庭教育指导服务和亲子活动。',
-      category: HomeTabType.FAMILY,
-      tags: ['家庭教育', '亲子关系', '家庭服务'],
-      author: '郑州市妇联',
-      publishTime: '2024-01-15 16:30',
-      readCount: 1340,
-      likeCount: 98,
-      imageUrl: '/images/family-education.jpg',
-      priority: 'medium'
     }
   ]
 }

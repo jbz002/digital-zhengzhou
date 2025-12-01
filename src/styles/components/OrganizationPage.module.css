@@ -145,7 +145,17 @@
   padding: var(--spacing-lg);
   border: 1px solid var(--border-color);
   transition: var(--transition-normal);
+  cursor: default;
+}
+
+.organizationCard.clickable {
   cursor: pointer;
+}
+
+.organizationCard.clickable:hover {
+  box-shadow: var(--shadow-medium);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
 }
 
 .organizationCard:hover {
@@ -156,6 +166,9 @@
 
 .cardHeader {
   margin-bottom: var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .organizationName {
@@ -209,6 +222,14 @@
 .emptyState p {
   font-size: var(--font-size-base);
   margin: 0;
+}
+
+.clickIndicator {
+  font-size: var(--font-size-xs);
+  color: var(--primary-color);
+  font-weight: var(--font-weight-medium);
+  opacity: 0.8;
+  white-space: nowrap;
 }
 
 /* 响应式调整 */

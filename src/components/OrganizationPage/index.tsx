@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import { OrganizationCategory, Organization } from '@types/organization'
 import styles from '@styles/components/OrganizationPage.module.css'
 
-const OrganizationPage: React.FC = () => {
+interface OrganizationPageProps {
+  onOrganizationSelect?: (organization: Organization) => void
+}
+
+const OrganizationPage: React.FC<OrganizationPageProps> = ({ onOrganizationSelect }) => {
   const [selectedCategory, setSelectedCategory] = useState<OrganizationCategory | null>(OrganizationCategory.LIBRARY)
 
   // 机构分类配置
@@ -381,6 +385,12 @@ const OrganizationPage: React.FC = () => {
     setSelectedCategory(categoryId)
   }
 
+  const handleOrganizationClick = (organization: Organization) => {
+    if (onOrganizationSelect) {
+      onOrganizationSelect(organization)
+    }
+  }
+
   const currentOrganizations = selectedCategory ? organizations[selectedCategory] : []
 
   return (
@@ -419,9 +429,16 @@ const OrganizationPage: React.FC = () => {
 
           <div className={styles.organizationGrid}>
             {currentOrganizations.map((organization) => (
-              <div key={organization.id} className={styles.organizationCard}>
+              <div
+                key={organization.id}
+                className={`${styles.organizationCard} ${onOrganizationSelect ? styles.clickable : ''}`}
+                onClick={() => handleOrganizationClick(organization)}
+              >
                 <div className={styles.cardHeader}>
                   <h4 className={styles.organizationName}>{organization.name}</h4>
+                  {onOrganizationSelect && (
+                    <span className={styles.clickIndicator}>点击查看详情 →</span>
+                  )}
                 </div>
                 <div className={styles.cardContent}>
                   <p className={styles.organizationAddress}>

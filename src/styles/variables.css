@@ -82,6 +82,14 @@
   --sidebar-width: 240px;
   --container-min-width: 1200px;
   --container-max-width: 1440px;
+  --article-max-width: 800px;
+
+  /* 边框半径 - 对应变量名称 */
+  --border-radius-small: var(--radius-small);
+  --border-radius-medium: var(--radius-medium);
+  --border-radius-large: var(--radius-large);
+  --primary-color-light: var(--primary-light);
+  --primary-color-dark: var(--primary-dark);
 
   /* Z-index层级 */
   --z-dropdown: 1000;
@@ -89,4 +97,5 @@
   --z-tooltip: 1100;
   --z-header: 100;
   --z-footer: 100;
+  --z-index-header: var(--z-header);
 }

@@ -5,7 +5,9 @@ export enum PageType {
   CULTURE = 'culture',
   ORGANIZATION = 'organization',
   RESIDENT = 'resident',
-  MEMBER = 'member'
+  MEMBER = 'member',
+  ARTICLE_DETAIL = 'article-detail',
+  ORGANIZATION_DETAIL = 'organization-detail'
 }
 
 export interface NavItem {
