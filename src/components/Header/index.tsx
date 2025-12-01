@@ -1,6 +1,6 @@
 import React from 'react'
-import WeatherWidget from './WeatherWidget'
 import Logo from './Logo'
+import WeatherWidget from './WeatherWidget'
 import UserCenter from './UserCenter'
 import { PageType, NavItem as NavItemType } from '@types/common'
 import styles from '@styles/components/Header.module.css'
@@ -54,11 +54,7 @@ const Header: React.FC<HeaderProps> = ({
     alert('扫码功能将在后续版本中实现')
   }
 
-  const handleWeatherClick = () => {
-    console.log('天气详情点击')
-    alert('天气详情将在后续版本中实现')
-  }
-
+  
   const handleNavItemClick = (page: PageType) => {
     onPageChange(page)
   }
@@ -87,7 +83,6 @@ const Header: React.FC<HeaderProps> = ({
 
         <div className={styles.headerRight}>
           <WeatherWidget
-            onClick={handleWeatherClick}
             className={styles.weatherWidget}
           />
           <UserCenter

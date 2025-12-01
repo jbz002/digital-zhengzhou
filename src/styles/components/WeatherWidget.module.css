@@ -3,64 +3,107 @@
 .weatherWidget {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-md);
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: var(--radius-medium);
-  cursor: pointer;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: transparent;
+  border: none;
+  border-radius: 0;
   transition: var(--transition-normal);
-  min-width: 180px;
+  min-width: 120px;
 }
 
 .weatherWidget:hover {
-  background-color: var(--surface-color);
-  box-shadow: var(--shadow-light);
-  transform: translateY(-1px);
+  background: transparent;
+  box-shadow: none;
+  border: none;
 }
 
 .weatherIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.weatherEmoji {
-  font-size: 24px;
+  font-size: 14px;
   line-height: 1;
+  flex-shrink: 0;
+  margin-right: var(--spacing-xs);
 }
 
 .weatherInfo {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: var(--spacing-xs);
   flex: 1;
+  min-width: 0;
+}
+
+.weatherMain {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  white-space: nowrap;
 }
 
 .temperature {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-medium);
-  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: #1a1a1a;
   line-height: 1.2;
 }
 
-.condition {
+.location {
   font-size: var(--font-size-xs);
-  color: var(--text-secondary);
+  color: #333333;
   line-height: 1.2;
-}
-
-.weatherDetails {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  font-size: var(--font-size-xs);
-  color: var(--text-hint);
-  border-left: 1px solid var(--divider-color);
-  padding-left: var(--spacing-sm);
-}
-
-.humidity,
-.windSpeed {
   white-space: nowrap;
+}
+
+.windInfo {
+  font-size: 10px;
+  color: #666666;
   line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+  .weatherWidget {
+    min-width: 140px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    gap: var(--spacing-xs);
+  }
+
+  .weatherIcon {
+    font-size: 20px;
+  }
+
+  .temperature {
+    font-size: var(--font-size-md);
+  }
+
+  .location {
+    font-size: var(--font-size-xs);
+  }
+
+  .windInfo {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .weatherWidget {
+    min-width: 120px;
+    padding: var(--spacing-xs);
+  }
+
+  .weatherIcon {
+    font-size: 18px;
+  }
+
+  .temperature {
+    font-size: var(--font-size-sm);
+  }
+
+  .location {
+    font-size: 10px;
+  }
+
+  .windInfo {
+    font-size: 9px;
+  }
 }

@@ -76,9 +76,6 @@ const UserCenter: React.FC<UserCenterProps> = ({
         onClick={handleUserClick}
       >
         <span className={styles.avatarEmoji}>👤</span>
-        {userInfo.isVip && (
-          <div className={styles.vipBadge}>VIP</div>
-        )}
       </div>
 
       {isDropdownOpen && (

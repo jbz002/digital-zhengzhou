@@ -33,8 +33,9 @@
 .headerRight {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-xs);
   flex-shrink: 0;
+  margin-right: var(--spacing-lg);
 }
 
 .headerNav {
@@ -104,10 +105,6 @@
 }
 
 @media (max-width: 1200px) {
-  .weatherWidget {
-    min-width: 160px;
-  }
-
   .logo .subtitle {
     display: none;
   }
