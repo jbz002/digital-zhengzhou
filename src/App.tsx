@@ -3,6 +3,7 @@ import Layout from './components/common/Layout'
 import { PageType } from './types/common'
 import { Organization } from './types/organization'
 import { Merchant } from './types/resident'
+import { CommunityInfo } from './types/community'
 import HomePage from './components/HomePage'
 import CulturePage from './components/CulturePage'
 import OrganizationPage from './components/OrganizationPage'
@@ -11,12 +12,14 @@ import MemberPage from './components/MemberPage'
 import ArticleDetail from './components/ArticleDetail'
 import OrganizationDetail from './components/OrganizationDetail'
 import MerchantDetail from './components/MerchantDetail'
+import CommunityDetail from './components/CommunityDetail'
 
 function App() {
   const [currentPage, setCurrentPage] = useState<PageType>(PageType.HOME)
   const [currentArticleId, setCurrentArticleId] = useState<string | null>(null)
   const [selectedOrganization, setSelectedOrganization] = useState<Organization | null>(null)
   const [selectedMerchant, setSelectedMerchant] = useState<Merchant | null>(null)
+  const [selectedCommunity, setSelectedCommunity] = useState<CommunityInfo | null>(null)
 
   // 处理文章详情页面
   const handleArticleClick = (articleId: string) => {
@@ -36,12 +39,19 @@ function App() {
     setCurrentPage(PageType.MERCHANT_DETAIL)
   }
 
+  // 处理社区详情页面
+  const handleCommunitySelect = (community: CommunityInfo) => {
+    setSelectedCommunity(community)
+    setCurrentPage(PageType.COMMUNITY_DETAIL)
+  }
+
   // 处理返回上一页
   const handleBack = () => {
     setCurrentPage(PageType.HOME)
     setCurrentArticleId(null)
     setSelectedOrganization(null)
     setSelectedMerchant(null)
+    setSelectedCommunity(null)
   }
 
   // 处理从详情页面返回到机构列表
@@ -56,11 +66,17 @@ function App() {
     setSelectedMerchant(null)
   }
 
+  // 处理从社区详情返回到首页
+  const handleBackToHome = () => {
+    setCurrentPage(PageType.HOME)
+    setSelectedCommunity(null)
+  }
+
   // 根据当前页面渲染对应组件
   const renderCurrentPage = () => {
     switch (currentPage) {
       case PageType.HOME:
-        return <HomePage onArticleClick={handleArticleClick} />
+        return <HomePage onArticleClick={handleArticleClick} onCommunitySelect={handleCommunitySelect} />
       case PageType.CULTURE:
         return <CulturePage />
       case PageType.ORGANIZATION:
@@ -87,8 +103,15 @@ function App() {
             onBack={handleBackToResident}
           />
         ) : null
+      case PageType.COMMUNITY_DETAIL:
+        return selectedCommunity ? (
+          <CommunityDetail
+            community={selectedCommunity}
+            onBack={handleBackToHome}
+          />
+        ) : null
       default:
-        return <HomePage onArticleClick={handleArticleClick} />
+        return <HomePage onArticleClick={handleArticleClick} onCommunitySelect={handleCommunitySelect} />
     }
   }
 
@@ -102,6 +125,9 @@ function App() {
     }
     if (page !== PageType.MERCHANT_DETAIL) {
       setSelectedMerchant(null)
+    }
+    if (page !== PageType.COMMUNITY_DETAIL) {
+      setSelectedCommunity(null)
     }
   }
 

@@ -1,15 +1,18 @@
 import React, { useState, useMemo } from 'react'
 import { HomeTabType } from '../../types/home'
 import { NewsItem } from '../../types/news'
+import { CommunityInfo } from '../../types/community'
 import { getNewsByTab } from '../../data/newsData'
 import NewsList from './NewsList'
+import CommunityClassification from '../CommunityClassification'
 import styles from '../../styles/components/HomePage.module.css'
 
 interface HomePageProps {
   onArticleClick: (articleId: string) => void
+  onCommunitySelect?: (community: CommunityInfo) => void
 }
 
-const HomePage: React.FC<HomePageProps> = ({ onArticleClick }) => {
+const HomePage: React.FC<HomePageProps> = ({ onArticleClick, onCommunitySelect }) => {
   const [activeTab, setActiveTab] = useState<HomeTabType>(HomeTabType.RECOMMEND)
 
   // 标签项配置
@@ -39,6 +42,13 @@ const HomePage: React.FC<HomePageProps> = ({ onArticleClick }) => {
     onArticleClick(newsItem.id)
   }
 
+  const handleCommunitySelect = (community: CommunityInfo) => {
+    console.log('选择社区:', community)
+    if (onCommunitySelect) {
+      onCommunitySelect(community)
+    }
+  }
+
   const handleLoadMore = () => {
     console.log('加载更多资讯')
     // 这里可以实现加载更多的逻辑
@@ -63,19 +73,29 @@ const HomePage: React.FC<HomePageProps> = ({ onArticleClick }) => {
 
         <div className={styles.mainContent}>
           <div className={styles.contentArea}>
-            <NewsList
-              newsItems={currentNews}
-              onItemClick={handleNewsClick}
-              displayMode="mixed"
-              className={styles.newsListContainer}
-            />
+            {/* 社区标签显示社区分类组件，其他标签显示资讯列表 */}
+            {activeTab === HomeTabType.COMMUNITY ? (
+              <CommunityClassification
+                onCommunitySelect={handleCommunitySelect}
+                className={styles.communityContainer}
+              />
+            ) : (
+              <>
+                <NewsList
+                  newsItems={currentNews}
+                  onItemClick={handleNewsClick}
+                  displayMode="mixed"
+                  className={styles.newsListContainer}
+                />
 
-            {currentNews.length > 0 && (
-              <div className={styles.loadMore}>
-                <button className={styles.loadMoreButton} onClick={handleLoadMore}>
-                  加载更多资讯
-                </button>
-              </div>
+                {currentNews.length > 0 && (
+                  <div className={styles.loadMore}>
+                    <button className={styles.loadMoreButton} onClick={handleLoadMore}>
+                      加载更多资讯
+                    </button>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>

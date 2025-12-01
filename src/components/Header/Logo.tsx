@@ -16,7 +16,11 @@ const Logo: React.FC<LogoProps> = ({
       onClick={onClick}
     >
       <div className={styles.logoIcon}>
-        <span className={styles.logoEmoji}>🏛️</span>
+        <img
+          src="/images/logo.jpg"
+          alt="数字郑州"
+          className={styles.logoImage}
+        />
       </div>
       <div className={styles.logoText}>
         <h1 className={styles.title}>数字郑州</h1>

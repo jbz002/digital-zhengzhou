@@ -220,6 +220,12 @@
   /* 让资讯列表占用最大可用空间 */
 }
 
+.communityContainer {
+  max-width: none;
+  margin: 0;
+  /* 让社区分类组件占用最大可用空间 */
+}
+
 .loadMore {
   display: flex;
   justify-content: center;
