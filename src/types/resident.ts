@@ -52,3 +52,37 @@ export interface ServiceGridProps extends BaseComponentProps {
   onServiceFollow: (serviceId: string) => void
   onServiceClick: (service: Service) => void
 }
+
+// 商家详情相关类型定义
+export interface Merchant {
+  id: string
+  name: string
+  category: ServiceCategory
+  description: string
+  address: string
+  phone: string
+  businessHours: string
+  introduction: string
+  tags: string[]
+  imageUrl?: string
+  rating?: number
+  reviewCount?: number
+  averagePrice?: string
+  features?: string[]
+  services?: string[]
+}
+
+export interface MerchantDetailProps extends BaseComponentProps {
+  merchant: Merchant
+  onBack: () => void
+}
+
+// 支持商家详情页面的服务分类
+export const MerchantSupportedCategories = [
+  ServiceCategory.DINING,
+  ServiceCategory.SHOPPING,
+  ServiceCategory.ENTERTAINMENT,
+  ServiceCategory.BEAUTY,
+  ServiceCategory.FITNESS,
+  ServiceCategory.PET_SERVICE
+] as const

@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
-import { ServiceCategory, Service } from '@types/resident'
+import { ServiceCategory, Service, Merchant, MerchantSupportedCategories } from '@types/resident'
+import { getMerchantByServiceId } from '@data/merchantData'
 import styles from '@styles/components/ResidentPage.module.css'
 
-const ResidentPage: React.FC = () => {
+interface ResidentPageProps {
+  onMerchantSelect?: (merchant: Merchant) => void
+}
+
+const ResidentPage: React.FC<ResidentPageProps> = ({ onMerchantSelect }) => {
   const [selectedCategory, setSelectedCategory] = useState<ServiceCategory | null>(ServiceCategory.CONVENIENT_SERVICE)
   const [followedServices, setFollowedServices] = useState<Set<string>>(new Set())
 
@@ -312,6 +317,16 @@ const ResidentPage: React.FC = () => {
     })
   }
 
+  const handleServiceClick = (service: Service) => {
+    // 检查当前分类是否支持商家详情页面
+    if (selectedCategory && MerchantSupportedCategories.includes(selectedCategory)) {
+      const merchant = getMerchantByServiceId(service.id, selectedCategory)
+      if (merchant && onMerchantSelect) {
+        onMerchantSelect(merchant)
+      }
+    }
+  }
+
   const currentServices = selectedCategory ? services[selectedCategory] : []
 
   return (
@@ -352,25 +367,37 @@ const ResidentPage: React.FC = () => {
           </div>
 
           <div className={styles.servicesContainer}>
-            {currentServices.map((service) => (
-              <div key={service.id} className={styles.serviceCard}>
-                <div className={styles.serviceHeader}>
-                  <button
-                    className={`${styles.followButton} ${followedServices.has(service.id) ? styles.followed : ''}`}
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      handleServiceFollow(service.id)
-                    }}
-                  >
-                    {followedServices.has(service.id) ? '已关注' : '关注'}
-                  </button>
+            {currentServices.map((service) => {
+              const isClickable = selectedCategory && MerchantSupportedCategories.includes(selectedCategory)
+              const merchant = isClickable ? getMerchantByServiceId(service.id, selectedCategory) : null
+
+              return (
+                <div
+                  key={service.id}
+                  className={`${styles.serviceCard} ${isClickable && merchant ? styles.clickable : ''}`}
+                  onClick={() => handleServiceClick(service)}
+                >
+                  <div className={styles.serviceHeader}>
+                    <button
+                      className={`${styles.followButton} ${followedServices.has(service.id) ? styles.followed : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleServiceFollow(service.id)
+                      }}
+                    >
+                      {followedServices.has(service.id) ? '已关注' : '关注'}
+                    </button>
+                  </div>
+                  <div className={styles.serviceContent}>
+                    <h4 className={styles.serviceName}>{service.name}</h4>
+                    <p className={styles.serviceDescription}>{service.description}</p>
+                    {isClickable && merchant && (
+                      <div className={styles.clickIndicator}>点击查看商家详情</div>
+                    )}
+                  </div>
                 </div>
-                <div className={styles.serviceContent}>
-                  <h4 className={styles.serviceName}>{service.name}</h4>
-                  <p className={styles.serviceDescription}>{service.description}</p>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
           {currentServices.length === 0 && (

@@ -1,0 +1,329 @@
+.merchantDetail {
+  padding: var(--spacing-lg);
+  background-color: var(--background-color);
+  min-height: 100vh;
+}
+
+/* 头部区域 */
+.detailHeader {
+  margin-bottom: var(--spacing-lg);
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  padding: var(--spacing-sm) 0;
+  margin-bottom: var(--spacing-md);
+  transition: opacity var(--transition-fast);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.merchantInfo {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+}
+
+.merchantBasic {
+  margin-bottom: var(--spacing-md);
+}
+
+.merchantName {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+  line-height: var(--line-height-tight);
+}
+
+.merchantMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.stars {
+  color: #FFB800;
+  font-size: var(--font-size-base);
+}
+
+.ratingValue {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.reviewCount {
+  font-size: var(--font-size-sm);
+  color: var(--text-hint);
+}
+
+.averagePrice {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.priceLabel {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.priceValue {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--primary-color);
+}
+
+.merchantTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.tag {
+  background-color: var(--primary-color);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+/* 信息区域 */
+.infoSection {
+  margin-bottom: var(--spacing-lg);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-md) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.infoGrid {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--divider-color);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.infoLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+.infoValue {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  flex: 1;
+  line-height: var(--line-height-relaxed);
+}
+
+/* 简介区域 */
+.introductionSection {
+  margin-bottom: var(--spacing-lg);
+}
+
+.introductionContent {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+}
+
+.introductionText {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+/* 特色服务区域 */
+.featuresSection {
+  margin-bottom: var(--spacing-lg);
+}
+
+.featuresGrid {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm);
+  background-color: var(--background-color);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.featureIcon {
+  font-size: var(--font-size-sm);
+  color: var(--primary-color);
+}
+
+.featureText {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* 主要产品区域 */
+.servicesSection {
+  margin-bottom: var(--spacing-lg);
+}
+
+.servicesList {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+}
+
+.serviceItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--divider-color);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.serviceBullet {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.serviceText {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  flex: 1;
+  line-height: var(--line-height-relaxed);
+}
+
+/* 资讯区域 */
+.newsSection {
+  margin-bottom: var(--spacing-lg);
+}
+
+.newsCount {
+  font-size: var(--font-size-sm);
+  color: var(--text-hint);
+  font-weight: var(--font-weight-normal);
+  background: none;
+}
+
+.newsListContainer {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .merchantDetail {
+    padding: var(--spacing-md);
+  }
+
+  .merchantMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .infoLabel {
+    min-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .merchantDetail {
+    padding: var(--spacing-sm);
+  }
+
+  .merchantName {
+    font-size: var(--font-size-lg);
+  }
+
+  .sectionTitle {
+    font-size: var(--font-size-base);
+  }
+
+  .infoGrid,
+  .introductionContent,
+  .featuresGrid,
+  .servicesList,
+  .newsListContainer {
+    padding: var(--spacing-md);
+  }
+}

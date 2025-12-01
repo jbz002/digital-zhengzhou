@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Layout from './components/common/Layout'
 import { PageType } from './types/common'
 import { Organization } from './types/organization'
+import { Merchant } from './types/resident'
 import HomePage from './components/HomePage'
 import CulturePage from './components/CulturePage'
 import OrganizationPage from './components/OrganizationPage'
@@ -9,11 +10,13 @@ import ResidentPage from './components/ResidentPage'
 import MemberPage from './components/MemberPage'
 import ArticleDetail from './components/ArticleDetail'
 import OrganizationDetail from './components/OrganizationDetail'
+import MerchantDetail from './components/MerchantDetail'
 
 function App() {
   const [currentPage, setCurrentPage] = useState<PageType>(PageType.HOME)
   const [currentArticleId, setCurrentArticleId] = useState<string | null>(null)
   const [selectedOrganization, setSelectedOrganization] = useState<Organization | null>(null)
+  const [selectedMerchant, setSelectedMerchant] = useState<Merchant | null>(null)
 
   // 处理文章详情页面
   const handleArticleClick = (articleId: string) => {
@@ -27,17 +30,30 @@ function App() {
     setCurrentPage(PageType.ORGANIZATION_DETAIL)
   }
 
+  // 处理商家详情页面
+  const handleMerchantSelect = (merchant: Merchant) => {
+    setSelectedMerchant(merchant)
+    setCurrentPage(PageType.MERCHANT_DETAIL)
+  }
+
   // 处理返回上一页
   const handleBack = () => {
     setCurrentPage(PageType.HOME)
     setCurrentArticleId(null)
     setSelectedOrganization(null)
+    setSelectedMerchant(null)
   }
 
   // 处理从详情页面返回到机构列表
   const handleBackToOrganization = () => {
     setCurrentPage(PageType.ORGANIZATION)
     setSelectedOrganization(null)
+  }
+
+  // 处理从商家详情返回到居民页面
+  const handleBackToResident = () => {
+    setCurrentPage(PageType.RESIDENT)
+    setSelectedMerchant(null)
   }
 
   // 根据当前页面渲染对应组件
@@ -50,7 +66,7 @@ function App() {
       case PageType.ORGANIZATION:
         return <OrganizationPage onOrganizationSelect={handleOrganizationSelect} />
       case PageType.RESIDENT:
-        return <ResidentPage />
+        return <ResidentPage onMerchantSelect={handleMerchantSelect} />
       case PageType.MEMBER:
         return <MemberPage />
       case PageType.ARTICLE_DETAIL:
@@ -62,6 +78,13 @@ function App() {
           <OrganizationDetail
             organization={selectedOrganization}
             onBack={handleBackToOrganization}
+          />
+        ) : null
+      case PageType.MERCHANT_DETAIL:
+        return selectedMerchant ? (
+          <MerchantDetail
+            merchant={selectedMerchant}
+            onBack={handleBackToResident}
           />
         ) : null
       default:
@@ -76,6 +99,9 @@ function App() {
     }
     if (page !== PageType.ORGANIZATION_DETAIL) {
       setSelectedOrganization(null)
+    }
+    if (page !== PageType.MERCHANT_DETAIL) {
+      setSelectedMerchant(null)
     }
   }
 
