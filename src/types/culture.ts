@@ -23,9 +23,5 @@ export interface FeatureCardProps extends BaseComponentProps {
   feature: CultureFeature
 }
 
-// 添加默认导出以支持不同的导入方式
-export default {
-  CultureFeatureType,
-  CultureFeature,
-  FeatureCardProps
-}
+// 注意：移除默认导出，因为CultureFeature和FeatureCardProps是接口类型
+// TypeScript接口在编译后会被移除，不应该作为值导出
