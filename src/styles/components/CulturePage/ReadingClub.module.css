@@ -1,0 +1,385 @@
+/* 同城读书会样式 */
+
+.readingClub {
+  width: 100%;
+  background: var(--surface-color);
+  border-radius: var(--radius-large);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+}
+
+.sectionSubtitle {
+  font-size: var(--font-size-md);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+  margin: 0;
+}
+
+/* 分类筛选 */
+.categoryFilter {
+  margin-bottom: var(--spacing-xl);
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.categoryBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-color);
+  background: var(--background-color);
+  border-radius: var(--radius-large);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.categoryBtn:hover {
+  border-color: var(--primary-color);
+  background: var(--primary-bg);
+}
+
+.categoryBtn.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.categoryCount {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: var(--font-weight-medium);
+}
+
+.categoryBtn.active .categoryCount {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 图书网格 */
+.booksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.bookCard {
+  background: var(--background-color);
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+  transition: var(--transition-normal);
+  border: 1px solid var(--border-color);
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.bookCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-heavy);
+  border-color: var(--primary-color);
+}
+
+/* 图书封面 */
+.bookCover {
+  position: relative;
+  width: 120px;
+  height: 160px;
+  flex-shrink: 0;
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-normal);
+}
+
+.bookCard:hover .coverImage {
+  transform: scale(1.05);
+}
+
+.coverOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.bookCard:hover .coverOverlay {
+  opacity: 1;
+}
+
+.joinBtn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-medium);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.joinBtn:hover {
+  background: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+/* 图书信息 */
+.bookInfo {
+  flex: 1;
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.bookHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-xs);
+}
+
+.bookTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0;
+  flex: 1;
+  margin-right: var(--spacing-sm);
+}
+
+.bookCategory {
+  background: var(--primary-bg);
+  color: var(--primary-color);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-small);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.bookAuthor {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* 评分 */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.star {
+  color: #ffc107;
+  font-size: 14px;
+}
+
+.starHalf {
+  color: #ffc107;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.starEmpty {
+  color: var(--border-color);
+  font-size: 14px;
+}
+
+.ratingValue {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-left: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+/* 图书描述 */
+.bookDescription {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* 会议信息 */
+.meetingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+}
+
+.meetingItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.meetingIcon {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.meetingText {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+/* 参与人数 */
+.participants {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-top: auto;
+  padding-top: var(--spacing-xs);
+  border-top: 1px solid var(--divider-color);
+}
+
+.participantsIcon {
+  font-size: 14px;
+}
+
+.participantsCount {
+  font-size: var(--font-size-xs);
+  color: var(--primary-color);
+  font-weight: var(--font-weight-medium);
+}
+
+/* 统计信息 */
+.clubStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--primary-bg), var(--primary-light));
+  border-radius: var(--radius-medium);
+}
+
+.statCard {
+  text-align: center;
+  padding: var(--spacing-md);
+}
+
+.statNumber {
+  display: block;
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xs);
+}
+
+.statLabel {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .readingClub {
+    padding: var(--spacing-lg);
+  }
+
+  .sectionTitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .categories {
+    gap: var(--spacing-xs);
+  }
+
+  .categoryBtn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+
+  .booksGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .bookCard {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .bookCover {
+    width: 100%;
+    height: 200px;
+  }
+
+  .bookInfo {
+    padding: var(--spacing-md);
+  }
+
+  .bookHeader {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    align-items: flex-start;
+  }
+
+  .bookTitle {
+    margin-right: 0;
+  }
+
+  .meetingInfo {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .clubStats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .booksGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .clubStats {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,385 @@
+/* 城市地图样式 */
+
+.cityMap {
+  width: 100%;
+  background: var(--surface-color);
+  border-radius: var(--radius-large);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+}
+
+.sectionSubtitle {
+  font-size: var(--font-size-md);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+  margin: 0;
+}
+
+/* 地图布局 */
+.mapLayout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.mapContainer {
+  position: relative;
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+}
+
+.mapImage {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.mapImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mapOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.1), transparent);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: var(--spacing-lg);
+}
+
+.mapLegend {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-medium);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-medium);
+  backdrop-filter: blur(10px);
+}
+
+.legendTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.legendItems {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.museum { background: #3498db; }
+.historical { background: #e74c3c; }
+.venue { background: #2ecc71; }
+.nature { background: #f39c12; }
+
+/* 地点列表面板 */
+.locationsPanel {
+  background: var(--background-color);
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+}
+
+.categoryFilter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.categoryBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+  border-radius: var(--radius-medium);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.categoryBtn:hover {
+  border-color: var(--primary-color);
+  background: var(--primary-bg);
+}
+
+.categoryBtn.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.categoryIcon {
+  font-size: 16px;
+}
+
+.locationsList {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-sm);
+}
+
+.locationCard {
+  background: var(--surface-color);
+  border-radius: var(--radius-medium);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.locationCard:hover,
+.locationCard.selected {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+}
+
+.locationImage {
+  width: 80px;
+  height: 60px;
+  border-radius: var(--radius-small);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.locationImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.locationContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.locationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.locationName {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.locationCategory {
+  background: var(--primary-bg);
+  color: var(--primary-color);
+  padding: 2px var(--spacing-xs);
+  border-radius: var(--radius-small);
+  font-size: 10px;
+  font-weight: var(--font-weight-medium);
+}
+
+.locationDescription {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.locationInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--text-hint);
+}
+
+.infoIcon {
+  font-size: 10px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.star {
+  color: #ffc107;
+  font-size: 10px;
+}
+
+.star.filled {
+  color: #ffc107;
+}
+
+.starEmpty {
+  color: var(--border-color);
+}
+
+.ratingValue {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.locationTags {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: var(--primary-bg);
+  color: var(--primary-color);
+  padding: 2px var(--spacing-xs);
+  border-radius: var(--radius-small);
+  font-size: 9px;
+  font-weight: var(--font-weight-medium);
+}
+
+/* 统计信息 */
+.mapStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--primary-bg), var(--primary-light));
+  border-radius: var(--radius-medium);
+}
+
+.statCard {
+  text-align: center;
+  padding: var(--spacing-md);
+}
+
+.statNumber {
+  display: block;
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xs);
+}
+
+.statLabel {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .mapLayout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .mapImage {
+    height: 300px;
+  }
+
+  .locationsPanel {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cityMap {
+    padding: var(--spacing-lg);
+  }
+
+  .sectionTitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .mapImage {
+    height: 250px;
+  }
+
+  .categoryFilter {
+    padding: var(--spacing-sm);
+  }
+
+  .locationCard {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .locationImage {
+    width: 100%;
+    height: 120px;
+  }
+
+  .mapStats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .mapStats {
+    grid-template-columns: 1fr;
+  }
+
+  .mapLegend {
+    padding: var(--spacing-sm);
+  }
+
+  .legendItems {
+    gap: 4px;
+  }
+}

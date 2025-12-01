@@ -1,79 +1,54 @@
 import React from 'react'
 import { CultureFeatureType } from '@types/culture'
+import MediaCenter from './MediaCenter'
+import ReadingClub from './ReadingClub'
+import NationReading from './NationReading'
+import KnowledgeMarket from './KnowledgeMarket'
+import CityCard from './CityCard'
+import CityMap from './CityMap'
+import CultureActivity from './CultureActivity'
+import TourismService from './TourismService'
 import styles from '@styles/components/CulturePage.module.css'
 
 const CulturePage: React.FC = () => {
-  // 文化功能模块配置
-  const features = [
-    {
-      id: CultureFeatureType.MEDIA_CENTER,
-      title: '融媒中心',
-      description: '融媒体内容和资讯平台',
-      icon: '📺'
-    },
-    {
-      id: CultureFeatureType.READING_CLUB,
-      title: '同城读书会',
-      description: '本地读书活动和书友社区',
-      icon: '📖'
-    },
-    {
-      id: CultureFeatureType.NATION_READING,
-      title: '全民阅读',
-      description: '推广全民阅读活动',
-      icon: '📚'
-    },
-    {
-      id: CultureFeatureType.KNOWLEDGE_MARKET,
-      title: '知识超市',
-      description: '知识付费和学习平台',
-      icon: '🛒'
-    },
-    {
-      id: CultureFeatureType.CITY_CARD,
-      title: '城市名片',
-      description: '郑州城市形象展示',
-      icon: '🏛️'
-    },
-    {
-      id: CultureFeatureType.CITY_MAP,
-      title: '城市地图',
-      description: '郑州文化地点导览',
-      icon: '🗺️'
-    },
-    {
-      id: CultureFeatureType.CULTURE_ACTIVITY,
-      title: '文化活动',
-      description: '本地文化活动信息',
-      icon: '🎭'
-    },
-    {
-      id: CultureFeatureType.TOURISM_SERVICE,
-      title: '文旅服务',
-      description: '文化旅游综合服务',
-      icon: '✈️'
-    }
+  // 功能模块顺序配置
+  const moduleOrder = [
+    CultureFeatureType.MEDIA_CENTER,
+    CultureFeatureType.READING_CLUB,
+    CultureFeatureType.NATION_READING,
+    CultureFeatureType.KNOWLEDGE_MARKET,
+    CultureFeatureType.CITY_CARD,
+    CultureFeatureType.CITY_MAP,
+    CultureFeatureType.CULTURE_ACTIVITY,
+    CultureFeatureType.TOURISM_SERVICE
   ]
+
+  const components: Record<string, React.FC> = {
+    [CultureFeatureType.MEDIA_CENTER]: MediaCenter,
+    [CultureFeatureType.READING_CLUB]: ReadingClub,
+    [CultureFeatureType.NATION_READING]: NationReading,
+    [CultureFeatureType.KNOWLEDGE_MARKET]: KnowledgeMarket,
+    [CultureFeatureType.CITY_CARD]: CityCard,
+    [CultureFeatureType.CITY_MAP]: CityMap,
+    [CultureFeatureType.CULTURE_ACTIVITY]: CultureActivity,
+    [CultureFeatureType.TOURISM_SERVICE]: TourismService
+  }
 
   return (
     <div className={styles.culturePage}>
-      <div className={styles.pageHeader}>
-        <h2 className={styles.pageTitle}>郑州文化</h2>
-        <p className={styles.pageSubtitle}>探索郑州丰富的文化资源和活动</p>
-      </div>
-
-      <div className={styles.featureGrid}>
-        {features.map((feature) => (
-          <div key={feature.id} className={styles.featureCard}>
-            <div className={styles.featureIcon}>
-              <span className={styles.iconEmoji}>{feature.icon}</span>
-            </div>
-            <div className={styles.featureContent}>
-              <h3 className={styles.featureTitle}>{feature.title}</h3>
-              <p className={styles.featureDescription}>{feature.description}</p>
-            </div>
-          </div>
-        ))}
+      {/* 详细功能模块展示 */}
+      <div className={styles.modulesContainer}>
+        {moduleOrder.map((moduleId) => {
+          const Component = components[moduleId]
+          if (Component) {
+            return (
+              <div key={`module-${moduleId}`} className={styles.moduleSection}>
+                <Component />
+              </div>
+            )
+          }
+          return null
+        })}
       </div>
     </div>
   )
