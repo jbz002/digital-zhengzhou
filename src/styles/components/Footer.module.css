@@ -1,75 +1,252 @@
 /* Footer组件样式 */
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: var(--footer-height);
-  background-color: var(--surface-color);
-  border-top: 1px solid var(--border-color);
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
-  z-index: var(--z-footer);
-  display: flex;
-  align-items: center;
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  border-top: 2px solid var(--primary-color);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-xl) 0;
+  margin-top: auto;
+  position: relative;
 }
 
 .footerContainer {
   max-width: var(--container-max-width);
   width: 100%;
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0 var(--spacing-lg);
 }
 
-.navigation {
+.footerContent {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: var(--spacing-xxl);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* 公司信息部分 */
+.companyInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.companyLogo {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  justify-content: space-around;
 }
 
-.navItem {
-  flex: 1;
-  max-width: 120px;
+.logoText {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.companyDescription {
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+}
+
+.companyDescription p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.contactIcon {
+  font-size: var(--font-size-base);
+  color: var(--primary-color);
+}
+
+/* 快速链接部分 */
+.linksSection {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.linkTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  margin: 0;
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid var(--primary-color);
+  display: inline-block;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.linkList li {
+  margin: 0;
+}
+
+.link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-normal) var(--ease-out);
+  display: inline-block;
+}
+
+.link:hover {
+  color: var(--primary-color);
+  transform: translateX(2px);
+}
+
+/* 底部版权信息 */
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+}
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.copyright p {
+  margin: 0;
+  color: var(--text-hint);
+  font-size: var(--font-size-xs);
+}
+
+.bottomLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.bottomLink {
+  color: var(--text-hint);
+  text-decoration: none;
+  font-size: var(--font-size-xs);
+  transition: color var(--transition-normal) var(--ease-out);
+}
+
+.bottomLink:hover {
+  color: var(--primary-color);
+}
+
+.separator {
+  color: var(--border-color);
+  font-size: var(--font-size-xs);
 }
 
 /* 响应式调整 */
 @media (max-width: 1440px) {
   .footerContainer {
-    padding: 0 var(--spacing-sm);
+    padding: 0 var(--spacing-md);
   }
 
-  .navigation {
-    gap: var(--spacing-xs);
-    max-width: 500px;
+  .footerContent {
+    gap: var(--spacing-xl);
+  }
+
+  .linksSection {
+    gap: var(--spacing-lg);
   }
 }
 
 @media (max-width: 1200px) {
-  .navigation {
-    gap: 0;
+  .footerContent {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
   }
 
-  .navItem {
-    min-width: 80px;
-    padding: var(--spacing-xs) var(--spacing-sm);
+  .companyInfo {
+    max-width: 600px;
   }
 
-  .navItem .navLabel {
+  .linksSection {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .footerContainer {
+    padding: 0 var(--spacing-md);
+  }
+
+  .companyDescription p {
+    font-size: var(--font-size-xs);
+  }
+
+  .contactItem {
+    font-size: var(--font-size-xs);
+  }
+
+  .link {
+    font-size: var(--font-size-xs);
+  }
+
+  .linkTitle {
+    font-size: var(--font-size-sm);
+  }
+
+  .linksSection {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .copyright p,
+  .bottomLink {
     font-size: 10px;
   }
 
-  .navItem .iconEmoji {
-    font-size: 18px;
+  .bottomLinks {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-xs);
+  }
+
+  .separator {
+    display: none;
   }
 }
 

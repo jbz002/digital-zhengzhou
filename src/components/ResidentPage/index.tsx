@@ -333,7 +333,17 @@ const ResidentPage: React.FC<ResidentPageProps> = ({ onMerchantSelect }) => {
     <div className={styles.residentPage}>
       <div className={styles.pageHeader}>
         <h2 className={styles.pageTitle}>居民服务</h2>
-        <p className={styles.pageSubtitle}>为郑州市民提供便捷的生活服务</p>
+        <div className={styles.searchContainer}>
+          <input
+            type="text"
+            className={styles.searchInput}
+            placeholder="搜索服务或商家..."
+          />
+          <button className={styles.searchButton}>
+            <span className={styles.searchIcon}>🔍</span>
+            搜索
+          </button>
+        </div>
       </div>
 
       <div className={styles.contentLayout}>

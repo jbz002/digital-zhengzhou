@@ -38,11 +38,12 @@
   padding: 0 var(--spacing-lg) var(--spacing-lg);
 }
 
+/* 会员信息卡片 */
 .memberCard {
   background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
   border-radius: var(--radius-large);
   padding: var(--spacing-xl);
-  box-shadow: var(--shadow-medium);
+  box-shadow: var(--shadow-heavy);
   color: var(--text-on-primary);
   position: relative;
   overflow: hidden;
@@ -107,8 +108,37 @@
 .memberLevel {
   font-size: var(--font-size-lg);
   opacity: 0.9;
+  margin: 0 0 var(--spacing-xs) 0;
+  line-height: 1.2;
+}
+
+.memberSince {
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
   margin: 0;
   line-height: 1.2;
+}
+
+.upgradeButton {
+  flex-shrink: 0;
+}
+
+.upgradeButton button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-medium);
+  color: var(--text-on-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  backdrop-filter: blur(10px);
+}
+
+.upgradeButton button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
 }
 
 .cardContent {
@@ -142,6 +172,311 @@
   line-height: 1.2;
 }
 
+.nextReward {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.rewardText {
+  font-size: var(--font-size-sm);
+  opacity: 0.9;
+  margin-bottom: var(--spacing-sm);
+  display: block;
+}
+
+.progress {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-small);
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-small);
+  transition: width 0.3s ease;
+}
+
+/* 会员等级体系 */
+.memberLevels {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-large);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.levelsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.levelCard {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-medium);
+  padding: var(--spacing-lg);
+  transition: var(--transition-normal);
+}
+
+.levelCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.levelCard.currentLevel {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.1);
+}
+
+.levelHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.levelIcon {
+  font-size: 24px;
+}
+
+.levelName {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.currentBadge {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+  font-size: var(--font-size-xs);
+  padding: 2px 8px;
+  border-radius: var(--radius-small);
+  font-weight: var(--font-weight-medium);
+}
+
+.levelBenefits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.benefitItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.benefitIcon {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+}
+
+.benefitText {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* 专享服务 */
+.exclusiveServices {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-large);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.serviceCard {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-medium);
+  transition: var(--transition-normal);
+}
+
+.serviceCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--primary-color);
+}
+
+.serviceIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-round);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.serviceContent {
+  flex: 1;
+}
+
+.serviceName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-xs) 0;
+  line-height: 1.3;
+}
+
+.serviceDesc {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.useButton {
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+  border: none;
+  border-radius: var(--radius-small);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  flex-shrink: 0;
+}
+
+.useButton:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* 会员活动 */
+.memberActivities {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-large);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+}
+
+.activitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.activityCard {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-medium);
+  padding: var(--spacing-lg);
+  transition: var(--transition-normal);
+}
+
+.activityCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--primary-color);
+}
+
+.activityHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+}
+
+.activityIcon {
+  font-size: 28px;
+}
+
+.typeBadge {
+  font-size: var(--font-size-xs);
+  padding: 2px 8px;
+  border-radius: var(--radius-small);
+  font-weight: var(--font-weight-medium);
+}
+
+.typeBadge.limited {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.typeBadge.monthly {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+}
+
+.typeBadge.permanent {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.activityTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+  line-height: 1.3;
+}
+
+.activityDesc {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-md) 0;
+  line-height: 1.3;
+}
+
+.activityFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activityDate {
+  font-size: var(--font-size-xs);
+  color: var(--text-hint);
+}
+
+.joinButton {
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+  border: none;
+  border-radius: var(--radius-small);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.joinButton:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* 会员特权 */
 .memberFeatures {
   background-color: var(--surface-color);
   border-radius: var(--radius-large);
@@ -197,7 +532,32 @@
   line-height: 1.3;
 }
 
+.featureDesc {
+  font-size: var(--font-size-xs);
+  color: var(--text-hint);
+  text-align: center;
+  line-height: 1.3;
+}
+
 /* 响应式调整 */
+@media (max-width: 1024px) {
+  .memberContent {
+    gap: var(--spacing-lg);
+  }
+
+  .levelsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .activitiesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .memberPage {
     padding: var(--spacing-md);
@@ -231,11 +591,34 @@
   }
 
   .memberStats {
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
     padding: var(--spacing-md) 0;
+  }
+
+  .statItem {
+    flex: 0 0 calc(50% - var(--spacing-sm));
   }
 
   .statValue {
     font-size: var(--font-size-lg);
+  }
+
+  .levelsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceCard {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .activitiesGrid {
+    grid-template-columns: 1fr;
   }
 
   .featuresGrid {
@@ -249,5 +632,40 @@
 
   .featureIcon {
     font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageHeader {
+    padding: var(--spacing-md) var(--spacing-md) 0;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .pageTitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .pageSubtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .memberContent {
+    padding: 0 var(--spacing-md) var(--spacing-md);
+  }
+
+  .memberCard {
+    padding: var(--spacing-md);
+  }
+
+  .memberStats {
+    gap: var(--spacing-sm);
+  }
+
+  .statItem {
+    flex: 0 0 calc(50% - var(--spacing-xs));
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
   }
 }

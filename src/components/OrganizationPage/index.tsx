@@ -397,7 +397,17 @@ const OrganizationPage: React.FC<OrganizationPageProps> = ({ onOrganizationSelec
     <div className={styles.organizationPage}>
       <div className={styles.pageHeader}>
         <h2 className={styles.pageTitle}>城市机构</h2>
-        <p className={styles.pageSubtitle}>查找郑州市各类机构和单位</p>
+        <div className={styles.searchContainer}>
+          <input
+            type="text"
+            className={styles.searchInput}
+            placeholder="搜索机构或服务..."
+          />
+          <button className={styles.searchButton}>
+            <span className={styles.searchIcon}>🔍</span>
+            搜索
+          </button>
+        </div>
       </div>
 
       <div className={styles.contentLayout}>

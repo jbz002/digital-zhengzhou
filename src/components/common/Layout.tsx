@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../Header'
+import Footer from './Footer'
 import { PageType } from '@types/common'
 import styles from '@styles/components/Layout.module.css'
 
@@ -26,6 +27,8 @@ const Layout: React.FC<LayoutProps> = ({
           {children}
         </div>
       </main>
+
+      <Footer />
     </div>
   )
 }
