@@ -1,5 +1,6 @@
 import { NewsItem } from '../types/news'
 import { HomeTabType } from '../types/home'
+import { getStableRandomImageUrl } from '../utils/randomImage'
 
 // 首页各个标签的资讯数据
 export const newsData: Record<HomeTabType, NewsItem[]> = {
@@ -757,9 +758,34 @@ export const newsData: Record<HomeTabType, NewsItem[]> = {
   ]
 }
 
+// 处理资讯项图片URL的函数
+const processNewsItemImageUrls = (newsItem: NewsItem): NewsItem => {
+  const processed = { ...newsItem }
+
+  // 为主要图片生成随机URL
+  if (processed.imageUrl) {
+    processed.imageUrl = getStableRandomImageUrl('NewsItem', newsItem.id, 300, 200)
+  }
+
+  // 为特色大图生成随机URL
+  if (processed.featuredImage) {
+    processed.featuredImage = getStableRandomImageUrl('NewsItem', `${newsItem.id}-featured`, 800, 400)
+  }
+
+  // 为图片数组生成随机URL
+  if (processed.images && processed.images.length > 0) {
+    processed.images = processed.images.map((_, index) =>
+      getStableRandomImageUrl('NewsItem', `${newsItem.id}-gallery-${index}`, 300, 200)
+    )
+  }
+
+  return processed
+}
+
 // 获取指定标签的资讯数据
 export const getNewsByTab = (tab: HomeTabType): NewsItem[] => {
-  return newsData[tab] || []
+  const rawNews = newsData[tab] || []
+  return rawNews.map(processNewsItemImageUrls)
 }
 
 // 模拟分页获取资讯数据
@@ -771,7 +797,8 @@ export const getNewsByTabWithPagination = (
   const allNews = newsData[tab] || []
   const startIndex = (page - 1) * pageSize
   const endIndex = startIndex + pageSize
-  const items = allNews.slice(startIndex, endIndex)
+  const rawItems = allNews.slice(startIndex, endIndex)
+  const items = rawItems.map(processNewsItemImageUrls)
 
   return {
     items,

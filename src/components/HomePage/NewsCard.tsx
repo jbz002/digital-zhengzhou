@@ -1,5 +1,6 @@
 import React from 'react'
 import { NewsItem, CardLayoutType } from '@types/news'
+import { ImageSizes, handleImageError, imageStyles } from '@utils/randomImage'
 import styles from '@styles/components/NewsCard.module.css'
 
 interface NewsCardProps {
@@ -111,7 +112,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
             {item.featuredImage && (
               <div className={styles.featuredImage}>
                 <div className={styles.imageWrapper}>
-                  <span className={styles.imageIcon}>🖼</span>
+                  <img
+                    src={ImageSizes.featured(item.id, 'NewsCard')}
+                    alt={item.title}
+                    style={imageStyles}
+                    onError={handleImageError}
+                  />
                 </div>
               </div>
             )}
@@ -160,7 +166,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
           <article {...commonProps}>
             <div className={styles.gridImage}>
               <div className={styles.imageWrapper}>
-                <span className={styles.imageIcon}>📰</span>
+                <img
+                  src={ImageSizes.grid(item.id, 'NewsCard')}
+                  alt={item.title}
+                  style={imageStyles}
+                  onError={handleImageError}
+                />
               </div>
               <div className={styles.overlayBadges}>{renderBadges()}</div>
               {renderMediaIndicators()}
@@ -218,7 +229,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
             {item.imageUrl && (
               <div className={styles.listImage}>
                 <div className={styles.imageWrapper}>
-                  <span className={styles.imageIcon}>📷</span>
+                  <img
+                    src={ImageSizes.small(item.id, 'NewsCard')}
+                    alt={item.title}
+                    style={imageStyles}
+                    onError={handleImageError}
+                  />
                 </div>
               </div>
             )}
@@ -236,7 +252,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
             {item.featuredImage && (
               <div className={styles.magazineImage}>
                 <div className={styles.imageWrapper}>
-                  <span className={styles.imageIcon}>🎨</span>
+                  <img
+                    src={ImageSizes.medium(item.id, 'NewsCard')}
+                    alt={item.title}
+                    style={imageStyles}
+                    onError={handleImageError}
+                  />
                 </div>
               </div>
             )}
@@ -270,7 +291,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
               {item.imageUrl && (
                 <div className={styles.compactImage}>
                   <div className={styles.imageWrapper}>
-                    <span className={styles.imageIcon}>📄</span>
+                    <img
+                      src={ImageSizes.thumbnail(item.id, 'NewsCard')}
+                      alt={item.title}
+                      style={imageStyles}
+                      onError={handleImageError}
+                    />
                   </div>
                 </div>
               )}
@@ -298,7 +324,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
             {item.imageUrl && (
               <div className={styles.defaultImage}>
                 <div className={styles.imageWrapper}>
-                  <span className={styles.imageIcon}>📰</span>
+                  <img
+                    src={ImageSizes.small(item.id, 'NewsCard')}
+                    alt={item.title}
+                    style={imageStyles}
+                    onError={handleImageError}
+                  />
                 </div>
               </div>
             )}

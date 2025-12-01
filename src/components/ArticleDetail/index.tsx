@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { NewsItem } from '../../types/news'
 import { getNewsDetail } from '../../data/newsDetailData'
+import { getRandomImageUrl, handleImageError, imageStyles } from '../../utils/randomImage'
 import styles from '../../styles/components/ArticleDetail.module.css'
 
 interface ArticleDetailProps {
@@ -114,7 +115,12 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ articleId, onBack }) => {
         {/* 头图 */}
         {article.featuredImage && (
           <div className={styles.featuredImage}>
-            <img src={article.featuredImage} alt={article.title} />
+            <img
+              src={getRandomImageUrl(800, 400, article.id)}
+              alt={article.title}
+              style={imageStyles}
+              onError={handleImageError}
+            />
           </div>
         )}
 
@@ -213,7 +219,12 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ articleId, onBack }) => {
               <div className={styles.imageGrid}>
                 {article.images.map((image, index) => (
                   <div key={index} className={styles.imageItem}>
-                    <img src={image} alt={`相关图片 ${index + 1}`} />
+                    <img
+                      src={getRandomImageUrl(300, 200, `${article.id}-gallery-${index}`)}
+                      alt={`相关图片 ${index + 1}`}
+                      style={imageStyles}
+                      onError={handleImageError}
+                    />
                   </div>
                 ))}
               </div>
