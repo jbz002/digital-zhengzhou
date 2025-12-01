@@ -1,8 +1,14 @@
 #!/usr/bin/env node
 
 // Cloudflare Pages构建脚本
-const { build } = require('vite')
-const { resolve } = require('path')
+import { build } from 'vite'
+import { resolve } from 'path'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+
+// 获取当前目录的ES模块等价物
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 async function buildForCloudflare() {
   console.log('🚀 开始为Cloudflare Pages构建项目...')
@@ -21,13 +27,13 @@ async function buildForCloudflare() {
       },
       resolve: {
         alias: {
-          '@': './src',
-          '@components': './src/components',
-          '@styles': './src/styles',
-          '@types': './src/types',
-          '@assets': './src/assets',
-          '@data': './src/data',
-          '@utils': './src/utils',
+          '@': resolve(process.cwd(), './src'),
+          '@components': resolve(process.cwd(), './src/components'),
+          '@styles': resolve(process.cwd(), './src/styles'),
+          '@types': resolve(process.cwd(), './src/types'),
+          '@assets': resolve(process.cwd(), './src/assets'),
+          '@data': resolve(process.cwd(), './src/data'),
+          '@utils': resolve(process.cwd(), './src/utils'),
         }
       },
       logLevel: 'info'
