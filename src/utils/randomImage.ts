@@ -53,30 +53,30 @@ export const getStableRandomImageUrl = (
 export const ImageSizes = {
   // 缩略图尺寸
   thumbnail: (id: string, componentName = 'default') =>
-    getStableRandomImageUrl(componentName, id, 60, 60),
+    getStableRandomImageUrl(componentName, id, 150, 150),
 
   // 小图尺寸
   small: (id: string, componentName = 'default') =>
-    getStableRandomImageUrl(componentName, id, 120, 90),
+    getStableRandomImageUrl(componentName, id, 320, 240),
 
   // 中等尺寸
   medium: (id: string, componentName = 'default') =>
-    getStableRandomImageUrl(componentName, id, 300, 200),
+    getStableRandomImageUrl(componentName, id, 800, 600),
 
   // 大图尺寸
   large: (id: string, componentName = 'default') =>
-    getStableRandomImageUrl(componentName, id, 600, 400),
+    getStableRandomImageUrl(componentName, id, 1200, 800),
 
   // 特色大图
   featured: (id: string, componentName = 'default') =>
-    getStableRandomImageUrl(componentName, id, 800, 400),
+    getStableRandomImageUrl(componentName, id, 1600, 900),
 
   // 网格卡片
   grid: (id: string, componentName = 'default') =>
-    getStableRandomImageUrl(componentName, id, 400, 300),
+    getStableRandomImageUrl(componentName, id, 800, 600),
 
   // 正方形
-  square: (id: string, componentName = 'default', size = 200) =>
+  square: (id: string, componentName = 'default', size = 400) =>
     getStableRandomImageUrl(componentName, id, size, size)
 }
 
@@ -95,7 +95,7 @@ export const handleImageError = (
     target.src = fallbackUrl
   } else {
     // 使用一个默认的占位图片
-    target.src = getRandomImageUrl(200, 200, 'placeholder')
+    target.src = getRandomImageUrl(400, 400, 'placeholder')
   }
 }
 

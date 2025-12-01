@@ -13,7 +13,7 @@ interface HomePageProps {
 }
 
 const HomePage: React.FC<HomePageProps> = ({ onArticleClick, onCommunitySelect }) => {
-  const [activeTab, setActiveTab] = useState<HomeTabType>(HomeTabType.RECOMMEND)
+  const [activeTab, setActiveTab] = useState<HomeTabType>(HomeTabType.FOLLOW)
 
   // 标签项配置
   const tabs = [

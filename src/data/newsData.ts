@@ -64,7 +64,7 @@ export const newsData: Record<HomeTabType, NewsItem[]> = {
       discount: '早鸟票8折',
       cardLayout: 'magazine',
       visualStyle: {
-        theme: 'dark',
+        theme: 'default',
         shadow: 'medium'
       }
     },
@@ -315,7 +315,7 @@ export const newsData: Record<HomeTabType, NewsItem[]> = {
       cardLayout: 'featured',
       isExclusive: true,
       visualStyle: {
-        theme: 'dark',
+        theme: 'default',
         shadow: 'medium'
       }
     },
@@ -523,7 +523,7 @@ export const newsData: Record<HomeTabType, NewsItem[]> = {
       cardLayout: 'featured',
       isHot: true,
       visualStyle: {
-        theme: 'dark',
+        theme: 'default',
         borderRadius: 'large'
       }
     }

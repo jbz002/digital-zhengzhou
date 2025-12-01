@@ -23,17 +23,6 @@
   /* 使用默认主题变量 */
 }
 
-.theme-dark {
-  background-color: var(--text-primary);
-  color: var(--surface-color);
-  border-color: var(--text-secondary);
-}
-
-.theme-dark .source,
-.theme-dark .time,
-.theme-dark .summary {
-  color: var(--text-hint);
-}
 
 .theme-colorful {
   background: linear-gradient(135deg, var(--primary-bg), var(--surface-color));
