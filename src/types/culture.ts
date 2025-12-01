@@ -22,3 +22,10 @@ export interface CultureFeature {
 export interface FeatureCardProps extends BaseComponentProps {
   feature: CultureFeature
 }
+
+// 添加默认导出以支持不同的导入方式
+export default {
+  CultureFeatureType,
+  CultureFeature,
+  FeatureCardProps
+}
